@@ -29,4 +29,18 @@ describe HeartOfRiot do
       end
     end
   end
+
+  describe 'Game' do
+    let(:game) { HeartOfRiot::Game.new('na', 38645059) }
+
+    it 'should have the input' do
+      expect(game.region).to eq 'na'
+      expect(game.summoner).to eq 38645059
+    end
+
+    it 'should have a list of recent games' do
+      # Riot has said the game count may increase in the future
+      expect(game.games.count).to eq 10
+    end
+  end
 end
